@@ -26,7 +26,9 @@ public class Main
         Draw.makeShip(ship, space, graphics);
 
         Thread.sleep(1000);
+        frame.update(graphics);
+        Thread.sleep(1000);
         
-        Draw.moveLeft(ship, 100, space, graphics);
+        Draw.moveLeft(ship, 250, space, graphics);
     }
 }
