@@ -51,6 +51,6 @@ public class Draw
         System.out.println(ship);
         System.out.println(space);
 
-        g2d.drawPolygon(x, y, 3);
+        g2d.drawPolygon(x, y, 3); //
     }
 }
