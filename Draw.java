@@ -6,7 +6,7 @@ public class Draw
     {
         int[] shipPos = ship.getPos();
         ship.changePos(shipPos[0] - dist, shipPos[1]);
-        ship.updatePoints(dist)
+        ship.updatePoints(dist);
         makeShip(ship, space, g);
     }
 
