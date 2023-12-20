@@ -23,7 +23,7 @@ public class Draw
     public static void moveUp(Ship ship, int a, int dist, ShipPanel shipPanel)
     {
         int[] shipPos = ship.getPos();
-        ship.changePos(shipPos[0], shipPos[1] + dist);
+        ship.changePos(shipPos[0], shipPos[1] - dist);
         ship.updatePoints(a, 0, dist);
         shipPanel.repaint();
     }
@@ -31,7 +31,7 @@ public class Draw
     public static void moveDown(Ship ship, int a, int dist, ShipPanel shipPanel)
     {
         int[] shipPos = ship.getPos();
-        ship.changePos(shipPos[0], shipPos[1] - dist);
+        ship.changePos(shipPos[0], shipPos[1] + dist);
         ship.updatePoints(a, 0, dist);
         shipPanel.repaint();
     }
