@@ -25,10 +25,11 @@ public class Main
 
         Draw.makeShip(ship, space, graphics);
 
-        Thread.sleep(1000);
-        frame.update(graphics);
-        Thread.sleep(1000);
-        
-        Draw.moveLeft(ship, 250, space, graphics);
+        for(int i = 4; i > 0; i--)
+        {
+            Thread.sleep(100);
+            frame.update(graphics);
+            Draw.moveLeft(ship, 10, space, graphics);
+        }
     }
 }
