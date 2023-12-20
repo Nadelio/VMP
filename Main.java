@@ -8,7 +8,7 @@ import java.awt.event.KeyListener;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 
-public class Main extends JFrame implements KeyListener, ActionListener
+public class Main extends JFrame implements KeyListener
 {
     private void init(Main frame) // add display area for the ship
     {
@@ -31,9 +31,6 @@ public class Main extends JFrame implements KeyListener, ActionListener
 
     @Override
     public void keyReleased(KeyEvent e){}
-    
-    @Override
-    public void actionPerformed(ActionEvent e){}
     //--------------------------------------------//
 
     public static void main(String [] args) throws InterruptedException
