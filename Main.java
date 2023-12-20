@@ -36,7 +36,7 @@ public class Main extends JFrame implements KeyListener
     {
         // Create and set up the window.
         frame = new Main();
-        space = new canvas(size, origin, Color.WHITE, Color.BLACK);
+        space = new canvas(size, origin, Color.BLACK, Color.WHITE);
 
         frame.setSize(space.size[0], space.size[1]);
         frame.setVisible(true);
