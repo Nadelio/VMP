@@ -1,37 +1,39 @@
 import java.awt.*;
 
+// REWRITE CREDIT GOES TO tinybluesapling on the Nico Is Lost discord ---> Their Github page: https://github.com/TinyBlueSapling
+
 public class Draw
 {
-    public static void moveLeft(Ship ship, int a, int dist, canvas space, Graphics g)
+    public static void moveLeft(Ship ship, int a, int dist, ShipPanel shipPanel)
     {
         int[] shipPos = ship.getPos();
         ship.changePos(shipPos[0] - dist, shipPos[1]);
         ship.updatePoints(a, dist, 0);
-        makeShip(ship, space, g);
+        shipPanel.repaint();
     }
 
-    public static void moveRight(Ship ship, int a, int dist, canvas space, Graphics g)
+    public static void moveRight(Ship ship, int a, int dist, ShipPanel shipPanel)
     {
         int[] shipPos = ship.getPos();
         ship.changePos(shipPos[0] + dist, shipPos[1]);
         ship.updatePoints(a, dist, 0);
-        makeShip(ship, space, g);
+        shipPanel.repaint();
     }
 
-    public static void moveUp(Ship ship, int a, int dist, canvas space, Graphics g)
+    public static void moveUp(Ship ship, int a, int dist, ShipPanel shipPanel)
     {
         int[] shipPos = ship.getPos();
         ship.changePos(shipPos[0], shipPos[1] + dist);
         ship.updatePoints(a, 0, dist);
-        makeShip(ship, space, g);
+        shipPanel.repaint();
     }
 
-    public static void moveDown(Ship ship, int a, int dist, canvas space, Graphics g)
+    public static void moveDown(Ship ship, int a, int dist, ShipPanel shipPanel)
     {
         int[] shipPos = ship.getPos();
         ship.changePos(shipPos[0], shipPos[1] - dist);
         ship.updatePoints(a, 0, dist);
-        makeShip(ship, space, g);
+        shipPanel.repaint();
     }
 
     public static void makeShip(Ship ship, canvas space, Graphics g)

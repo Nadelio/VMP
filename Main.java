@@ -1,26 +1,20 @@
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import javax.swing.JFrame;
-import javax.swing.JTextField;
+
 
 public class Main extends JFrame implements KeyListener
 {
-    private void init(Main frame) // add display area for the ship
-    {
-        JTextField typingArea;
-        typingArea = new JTextField();
-        typingArea.addKeyListener(this);
-         
-        frame.getContentPane().add(typingArea, BorderLayout.PAGE_START);
-    }
-    
-    @Override
-    public void keyPressed(KeyEvent e)
-    {
-        System.out.println(e.getKeyCode());
+    public static int[] size = { 1000, 1000 };
+    public static int[] origin = { 500, 500 };
+
+    public static void main(String[] args) throws InterruptedException {
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                createGUI();
+            }
+        });
     }
 
     //-------------------unused-------------------//
@@ -31,11 +25,8 @@ public class Main extends JFrame implements KeyListener
     public void keyReleased(KeyEvent e){}
     //--------------------------------------------//
 
-    public static void main(String [] args) throws InterruptedException
-    {
-        int[] size = {1000, 1000};
-        int[] origin = {500, 500};
-
+    private static void createGUI() {
+        // Create and set up the window.
         Main frame = new Main();
         canvas space = new canvas(size, origin, Color.WHITE, Color.BLACK);
 
@@ -44,22 +35,30 @@ public class Main extends JFrame implements KeyListener
         frame.getContentPane().setBackground(space.backgroundColor);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        Graphics graphics = frame.getGraphics();
+        frame.addKeyListener(new Main());
 
-        Ship ship = new Ship(origin[0], origin[1], 50); // a is the side length of the ship/triangle
+        Ship ship = new Ship(origin[0], origin[1], 100); // 10 is the side length of the ship/triangle
 
-        Draw.makeShip(ship, space, graphics);
-        
-        frame.init(frame);
-        frame.pack();
-        
-        /*
-        for(int i = 10; i > 0; i--)
-        {
-            Thread.sleep(225);
-            frame.update(graphics);
-            Draw.moveLeft(ship, 50, 25, space, graphics); // ship, a/side length, distance travelled, graphics module
+        ShipPanel shipPanel = new ShipPanel(ship, space);
+        shipPanel.setBackground(space.backgroundColor);
+        frame.add(shipPanel);
+
+        for (int i = 4; i > 0; i--) {
+            try
+            {
+                Thread.sleep(225);
+            }
+            catch (InterruptedException e)
+            {
+                e.printStackTrace();
+            }
+            Draw.moveLeft(ship, 50, 25, shipPanel);
         }
-        */
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e)
+    {
+        System.out.println(e.getKeyCode());
     }
 }
