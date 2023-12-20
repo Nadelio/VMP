@@ -46,7 +46,7 @@ public class Main extends JFrame implements KeyListener
 
         Graphics graphics = frame.getGraphics();
 
-        Ship ship = new Ship(origin[0], origin[1], 100); // a is the side length of the ship/triangle
+        Ship ship = new Ship(origin[0], origin[1], 50); // a is the side length of the ship/triangle
 
         Draw.makeShip(ship, space, graphics);
         
@@ -58,7 +58,7 @@ public class Main extends JFrame implements KeyListener
         {
             Thread.sleep(225);
             frame.update(graphics);
-            Draw.moveLeft(ship, 50, 25, space, graphics);
+            Draw.moveLeft(ship, 50, 25, space, graphics); // ship, a/side length, distance travelled, graphics module
         }
         */
     }
