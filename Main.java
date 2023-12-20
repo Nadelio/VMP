@@ -18,30 +18,23 @@ public class Main extends JFrame implements KeyListener, ActionListener
          
         frame.getContentPane().add(typingArea, BorderLayout.PAGE_START);
     }
-
-    @Override
-    public void keyTyped(KeyEvent e)
-    {
-        System.out.println(e.getKeyCode());
-    }
-
+    
     @Override
     public void keyPressed(KeyEvent e)
     {
         System.out.println(e.getKeyCode());
     }
 
+    //-------------------unused-------------------//
     @Override
-    public void keyReleased(KeyEvent e)
-    {
-        System.out.println(e.getKeyCode());
-    }
+    public void keyTyped(KeyEvent e){}
+
+    @Override
+    public void keyReleased(KeyEvent e){}
     
     @Override
-    public void actionPerformed(ActionEvent e)
-    {
-        System.out.println(e.getActionCommand());
-    }
+    public void actionPerformed(ActionEvent e){}
+    //--------------------------------------------//
 
     public static void main(String [] args) throws InterruptedException
     {
@@ -58,8 +51,7 @@ public class Main extends JFrame implements KeyListener, ActionListener
 
         Graphics graphics = frame.getGraphics();
 
-        // add various functions here
-        Ship ship = new Ship(origin[0], origin[1], 100); // 10 is the side length of the ship/triangle
+        Ship ship = new Ship(origin[0], origin[1], 100); // a is the side length of the ship/triangle
 
         Draw.makeShip(ship, space, graphics);
         
