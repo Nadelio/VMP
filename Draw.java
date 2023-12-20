@@ -2,35 +2,35 @@ import java.awt.*;
 
 public class Draw
 {
-    public static void moveLeft(Ship ship, int dist, canvas space, Graphics g)
+    public static void moveLeft(Ship ship, int a, int dist, canvas space, Graphics g)
     {
         int[] shipPos = ship.getPos();
         ship.changePos(shipPos[0] - dist, shipPos[1]);
-        ship.updatePoints(dist);
+        ship.updatePoints(a, dist, 0);
         makeShip(ship, space, g);
     }
 
-    public static void moveRight(Ship ship, int dist, canvas space, Graphics g)
+    public static void moveRight(Ship ship, int a, int dist, canvas space, Graphics g)
     {
         int[] shipPos = ship.getPos();
         ship.changePos(shipPos[0] + dist, shipPos[1]);
-        ship.updatePoints(dist);
+        ship.updatePoints(a, dist, 0);
         makeShip(ship, space, g);
     }
 
-    public static void moveUp(Ship ship, int dist, canvas space, Graphics g)
+    public static void moveUp(Ship ship, int a, int dist, canvas space, Graphics g)
     {
         int[] shipPos = ship.getPos();
         ship.changePos(shipPos[0], shipPos[1] + dist);
-        ship.updatePoints(dist);
+        ship.updatePoints(a, 0, dist);
         makeShip(ship, space, g);
     }
 
-    public static void moveDown(Ship ship, int dist, canvas space, Graphics g)
+    public static void moveDown(Ship ship, int a, int dist, canvas space, Graphics g)
     {
         int[] shipPos = ship.getPos();
         ship.changePos(shipPos[0], shipPos[1] - dist);
-        ship.updatePoints(dist);
+        ship.updatePoints(a, 0, dist);
         makeShip(ship, space, g);
     }
 

@@ -9,7 +9,7 @@ public class Ship
     {
         this.pos[0] = 0; // x
         this.pos[1] = 0; // y
-        updatePoints(a);
+        updatePoints(a, 0, 0);
     }
 
     public Ship(int x, int y, int a) // a = side length
@@ -30,10 +30,10 @@ public class Ship
         this.pos[1] = y;
     }
 
-    public void updatePoints(int a)
+    public void updatePoints(int a, int xDist, int yDist)
     {
-        int x = this.pos[0];
-        int y = this.pos[1];
+        int x = this.pos[0] + xDist;
+        int y = this.pos[1] + yDist;
 
         this.shipTop[0] = x;
         this.shipTop[1] = (int) (y + ((Math.sqrt(3)/3) * a));
