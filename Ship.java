@@ -24,17 +24,15 @@ public class Ship
         this.shipRight[1] = (int) (y - ((Math.sqrt(3)/6) * a));
     }
 
-    public void changePos(int x, int y)
+    public void changePos(int a, int x, int y)
     {
         this.pos[0] = x;
         this.pos[1] = y;
+        updatePoints(a, x, y);
     }
 
-    public void updatePoints(int a, int xDist, int yDist)
+    public void updatePoints(int a, int x, int y)
     {
-        int x = this.pos[0] + xDist;
-        int y = this.pos[1] + yDist;
-
         this.shipTop[0] = x;
         this.shipTop[1] = (int) (y + ((Math.sqrt(3)/3) * a));
         this.shipLeft[0] = (int) (x - (a/2));
